@@ -1,0 +1,374 @@
+.scn-scene,
+.scn-scene * {
+  letter-spacing: 0;
+}
+
+.scn-scene {
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+.scn-grid {
+  position: absolute;
+  inset: 64px 86px;
+  pointer-events: none;
+  background-image: var(--surface-pattern);
+  background-size: var(--surface-pattern-size);
+  opacity: 0.2;
+}
+
+.scn-corner {
+  position: absolute;
+  width: 132px;
+  height: 132px;
+  border-color: var(--accent);
+  opacity: 0.48;
+}
+
+.scn-corner--tl {
+  top: 64px;
+  left: 86px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.scn-corner--br {
+  right: 86px;
+  bottom: 64px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.scn-title {
+  position: absolute;
+  z-index: 4;
+  top: 104px;
+  left: 122px;
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-display-cn);
+  font-size: 82px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.scn-case,
+.scn-code-stage,
+.scn-query-stage,
+.scn-states,
+.scn-final {
+  position: absolute;
+  inset: 282px 124px 112px;
+}
+
+.scn-request-map {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 34px;
+  height: 100%;
+}
+
+.scn-path {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.scn-path-node {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 18px;
+  align-items: center;
+  min-height: 96px;
+  padding: 0 22px;
+  border: 1px dashed var(--rule);
+  background: var(--surface-2);
+  box-shadow: var(--card-shadow);
+  color: var(--text-mute);
+}
+
+.scn-path-node span {
+  color: var(--text-faint);
+  font-size: 25px;
+}
+
+.scn-path-node strong {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.scn-path-node--done {
+  color: var(--text-2);
+}
+
+.scn-path-node--active {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: var(--card-shadow), 0 0 38px var(--accent-glow);
+}
+
+.scn-fail-card,
+.scn-tag-card,
+.scn-pulse-log,
+.scn-exception-card,
+.scn-log-panel,
+.scn-state-card,
+.scn-final-note,
+.scn-code {
+  border: 1px solid var(--rule);
+  background: var(--surface-2);
+  box-shadow: var(--card-shadow);
+}
+
+.scn-fail-card {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 20px;
+  min-height: 0;
+  text-align: center;
+}
+
+.scn-fail-card strong {
+  color: var(--accent);
+  font-size: 74px;
+  font-weight: 500;
+}
+
+.scn-fail-card span {
+  color: var(--text-2);
+  font-size: 34px;
+}
+
+.scn-code-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 440px;
+  gap: 32px;
+}
+
+.scn-code {
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  min-height: 0;
+  padding: 34px;
+}
+
+.scn-code-line {
+  margin: 0;
+  padding: 24px;
+  border: 1px dashed var(--rule);
+  color: var(--text-2);
+  font-size: 30px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.scn-code-line--active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: inset 4px 0 0 var(--accent);
+}
+
+.scn-tag-card,
+.scn-pulse-log,
+.scn-exception-card {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 18px;
+  padding: 30px;
+  text-align: center;
+}
+
+.scn-tag-card span,
+.scn-pulse-log span,
+.scn-exception-card span {
+  color: var(--text-2);
+  font-size: 30px;
+}
+
+.scn-tag-card strong,
+.scn-pulse-log strong,
+.scn-exception-card strong {
+  color: var(--accent);
+  font-size: 52px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.scn-pulse-log::before,
+.scn-exception-card::before {
+  content: "";
+  width: 160px;
+  height: 160px;
+  border: 2px solid var(--accent);
+  animation: scnPulse 900ms var(--ease-quart) infinite alternate;
+}
+
+.scn-exception-card::before {
+  animation-name: scnFault;
+}
+
+.scn-query-stage {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 28px;
+}
+
+.scn-query {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 104px;
+  padding: 0 32px;
+  border: 1px solid var(--accent);
+  background: var(--surface);
+  box-shadow: var(--card-shadow), 0 0 38px var(--accent-glow);
+  color: var(--accent);
+  font-size: 36px;
+}
+
+.scn-query strong {
+  min-width: 0;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.scn-query i {
+  width: 18px;
+  height: 42px;
+  background: var(--accent);
+  animation: scnBlink 720ms steps(1, end) infinite;
+}
+
+.scn-log-panel {
+  overflow: hidden;
+  min-height: 0;
+  padding: 22px;
+}
+
+.scn-log {
+  display: grid;
+  gap: 14px;
+}
+
+.scn-row {
+  display: grid;
+  grid-template-columns: 130px 74px 86px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  min-height: 72px;
+  padding: 0 18px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--text-2);
+  font-size: 25px;
+  animation: scnRowIn 420ms var(--ease-quart) both;
+}
+
+.scn-row--error {
+  color: var(--accent);
+}
+
+.scn-row--muted {
+  color: var(--text-faint);
+  filter: blur(1px);
+}
+
+.scn-states {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 34px;
+}
+
+.scn-state-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.scn-state-card {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+}
+
+.scn-state-card span {
+  color: var(--text-2);
+  font-size: 28px;
+}
+
+.scn-state-card strong {
+  color: var(--accent);
+  font-size: 42px;
+  font-weight: 500;
+}
+
+.scn-final {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 430px;
+  gap: 28px;
+}
+
+.scn-final-note {
+  display: grid;
+  align-content: center;
+  gap: 22px;
+  padding: 28px;
+}
+
+.scn-final-note span {
+  display: grid;
+  place-items: center;
+  min-height: 96px;
+  border: 1px dashed var(--rule);
+  color: var(--accent);
+  font-size: 28px;
+  text-align: center;
+}
+
+@keyframes scnPulse {
+  from {
+    transform: scale(0.82);
+    opacity: 0.55;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scnFault {
+  from {
+    transform: translateX(-10px);
+    box-shadow: 0 0 0 var(--accent-glow);
+  }
+  to {
+    transform: translateX(10px);
+    box-shadow: 0 0 48px var(--accent-glow);
+  }
+}
+
+@keyframes scnBlink {
+  0%, 52% {
+    opacity: 1;
+  }
+  53%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes scnRowIn {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

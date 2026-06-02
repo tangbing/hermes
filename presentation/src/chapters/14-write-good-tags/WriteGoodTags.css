@@ -1,0 +1,348 @@
+.wgt-scene,
+.wgt-scene * {
+  letter-spacing: 0;
+}
+
+.wgt-scene {
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+.wgt-grid {
+  position: absolute;
+  inset: 64px 86px;
+  pointer-events: none;
+  background-image: var(--surface-pattern);
+  background-size: var(--surface-pattern-size);
+  opacity: 0.2;
+}
+
+.wgt-corner {
+  position: absolute;
+  width: 132px;
+  height: 132px;
+  border-color: var(--accent);
+  opacity: 0.48;
+}
+
+.wgt-corner--tl {
+  top: 64px;
+  left: 86px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.wgt-corner--br {
+  right: 86px;
+  bottom: 64px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.wgt-title {
+  position: absolute;
+  z-index: 4;
+  top: 104px;
+  left: 122px;
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-display-cn);
+  font-size: 82px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.wgt-hero,
+.wgt-compare,
+.wgt-memory,
+.wgt-tags,
+.wgt-good-code,
+.wgt-search,
+.wgt-team {
+  position: absolute;
+  inset: 282px 124px 112px;
+}
+
+.wgt-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 460px;
+  gap: 44px;
+  align-items: stretch;
+}
+
+.wgt-hero strong {
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--accent);
+  background: var(--surface-2);
+  box-shadow: var(--card-shadow), 0 0 46px var(--accent-glow);
+  color: var(--accent);
+  font-family: var(--font-display-cn);
+  font-size: 76px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.wgt-hero-rail {
+  display: grid;
+  gap: 26px;
+  padding: 36px;
+  border: 1px solid var(--rule);
+  background: var(--surface-2);
+  box-shadow: var(--card-shadow);
+}
+
+.wgt-hero-rail span {
+  border: 1px dashed var(--rule);
+  background: var(--surface-3);
+  animation: wgtRail 900ms var(--ease-quart) infinite alternate;
+}
+
+.wgt-hero-rail span:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.wgt-hero-rail span:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+.wgt-compare,
+.wgt-memory,
+.wgt-good-code {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 430px;
+  gap: 32px;
+}
+
+.wgt-code,
+.wgt-bad-note,
+.wgt-memory-card,
+.wgt-tag-card,
+.wgt-search-results,
+.wgt-team-lane {
+  border: 1px solid var(--rule);
+  background: var(--surface-2);
+  box-shadow: var(--card-shadow);
+}
+
+.wgt-code {
+  display: grid;
+  align-content: center;
+  gap: 24px;
+  min-height: 0;
+  padding: 38px;
+}
+
+.wgt-code-line {
+  margin: 0;
+  padding: 28px;
+  border: 1px dashed var(--rule);
+  color: var(--text-2);
+  font-size: 34px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  animation: wgtLineIn 420ms var(--ease-quart) both;
+}
+
+.wgt-code-line--bad {
+  color: var(--text-mute);
+}
+
+.wgt-code-line--active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: inset 4px 0 0 var(--accent);
+}
+
+.wgt-bad-note,
+.wgt-memory-card,
+.wgt-tag-card {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 16px;
+  padding: 30px;
+  text-align: center;
+}
+
+.wgt-bad-note span,
+.wgt-memory-card span,
+.wgt-tag-card span {
+  color: var(--text-2);
+  font-size: 30px;
+}
+
+.wgt-bad-note strong,
+.wgt-memory-card strong,
+.wgt-tag-card strong {
+  color: var(--accent);
+  font-size: 50px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.wgt-bad-note::before,
+.wgt-memory-card::before {
+  content: "";
+  width: 150px;
+  height: 150px;
+  border: 2px solid var(--accent);
+  animation: wgtUnclear 900ms var(--ease-quart) infinite alternate;
+}
+
+.wgt-tags {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.wgt-tag-card {
+  min-width: 0;
+}
+
+.wgt-tag-card strong {
+  font-size: 46px;
+}
+
+.wgt-tag-card--single strong {
+  font-size: 42px;
+}
+
+.wgt-search {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 30px;
+}
+
+.wgt-query {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 108px;
+  padding: 0 32px;
+  border: 1px solid var(--accent);
+  background: var(--surface);
+  box-shadow: var(--card-shadow), 0 0 38px var(--accent-glow);
+  color: var(--accent);
+  font-size: 36px;
+}
+
+.wgt-query strong {
+  font-weight: 500;
+}
+
+.wgt-query i {
+  width: 18px;
+  height: 42px;
+  background: var(--accent);
+  animation: wgtBlink 720ms steps(1, end) infinite;
+}
+
+.wgt-search-results {
+  display: grid;
+  align-content: center;
+  gap: 24px;
+  padding: 34px;
+}
+
+.wgt-search-results span {
+  display: grid;
+  align-items: center;
+  min-height: 92px;
+  padding: 0 28px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--text-2);
+  font-size: 32px;
+}
+
+.wgt-search-results span:first-child {
+  color: var(--accent);
+}
+
+.wgt-team {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 120px minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.wgt-team-lane {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 18px;
+  min-height: 360px;
+  padding: 30px;
+  text-align: center;
+}
+
+.wgt-team-lane span {
+  color: var(--text-2);
+  font-size: 34px;
+}
+
+.wgt-team-lane strong {
+  color: var(--accent);
+  font-size: 50px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.wgt-team-link {
+  height: 2px;
+  background: var(--accent);
+  transform-origin: left center;
+  animation: wgtDraw 900ms var(--ease-quart) both;
+}
+
+@keyframes wgtRail {
+  from {
+    transform: scaleX(0.55);
+    opacity: 0.55;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes wgtLineIn {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes wgtUnclear {
+  from {
+    transform: rotate(-4deg) scale(0.94);
+    filter: blur(0);
+  }
+  to {
+    transform: rotate(4deg) scale(1);
+    filter: blur(2px);
+  }
+}
+
+@keyframes wgtBlink {
+  0%, 52% {
+    opacity: 1;
+  }
+  53%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes wgtDraw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

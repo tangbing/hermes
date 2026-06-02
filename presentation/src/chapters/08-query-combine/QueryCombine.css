@@ -1,0 +1,249 @@
+.qc-scene,
+.qc-scene * {
+  letter-spacing: 0;
+}
+
+.qc-scene {
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+.qc-grid {
+  position: absolute;
+  inset: 64px 86px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--rule) 1px, transparent 1px),
+    linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+  background-size: 120px 120px;
+  opacity: 0.2;
+}
+
+.qc-corner {
+  position: absolute;
+  width: 132px;
+  height: 132px;
+  border-color: var(--accent);
+  opacity: 0.48;
+}
+
+.qc-corner--tl {
+  top: 64px;
+  left: 86px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.qc-corner--br {
+  right: 86px;
+  bottom: 64px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.qc-title {
+  position: absolute;
+  z-index: 4;
+  top: 104px;
+  left: 122px;
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-display-cn);
+  font-size: 82px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.qc-query {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  min-height: 92px;
+  padding: 0 28px;
+  border: 1px solid var(--accent);
+  background: var(--surface);
+  box-shadow: var(--card-shadow);
+  color: var(--text);
+  font-size: 30px;
+}
+
+.qc-query span,
+.qc-query strong {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.qc-query strong {
+  padding: 8px 10px;
+  border: 1px dashed var(--rule);
+  background: var(--accent-soft);
+  overflow-wrap: anywhere;
+}
+
+.qc-query i {
+  width: 18px;
+  height: 36px;
+  background: var(--accent);
+  animation: qcBlink 720ms steps(1, end) infinite;
+}
+
+.qc-intro {
+  position: absolute;
+  inset: 318px 142px 130px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 34px;
+}
+
+.qc-field-cloud {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  align-items: center;
+}
+
+.qc-field-cloud span {
+  display: grid;
+  place-items: center;
+  min-height: 210px;
+  padding: 24px;
+  border: 1px dashed var(--rule);
+  background: var(--surface-2);
+  box-shadow: var(--card-shadow);
+  color: var(--text-2);
+  font-size: 29px;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.qc-field-cloud span:first-child,
+.qc-field-cloud span:last-child {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.qc-intro-note,
+.qc-query-source {
+  justify-self: end;
+  color: var(--accent);
+  font-size: 36px;
+}
+
+.qc-full {
+  position: absolute;
+  inset: 330px 122px 250px;
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 34px;
+  align-content: center;
+}
+
+.qc-breakdown {
+  position: absolute;
+  inset: 320px 136px 220px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.qc-break-card {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 20px;
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid var(--accent);
+  background: var(--surface-2);
+  box-shadow: var(--card-shadow);
+}
+
+.qc-break-card span {
+  color: var(--text-mute);
+  font-size: 27px;
+}
+
+.qc-break-card strong {
+  color: var(--accent);
+  font-size: 38px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.qc-break-card em {
+  align-self: end;
+  color: var(--text-2);
+  font-size: 30px;
+  font-style: normal;
+}
+
+.qc-result {
+  position: absolute;
+  inset: 292px 130px 118px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 28px;
+}
+
+.qc-path {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr 80px 0.7fr 80px 0.7fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.qc-path span {
+  display: grid;
+  place-items: center;
+  min-height: 92px;
+  padding: 12px;
+  border: 1px dashed var(--rule);
+  background: var(--surface-2);
+  color: var(--text-2);
+  box-shadow: var(--card-shadow);
+  font-size: 25px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.qc-path i {
+  border-top: 2px dashed var(--accent);
+}
+
+.qc-ticket {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 22px;
+  padding: 42px;
+  border: 1px solid var(--accent);
+  background: var(--surface-2);
+  box-shadow: var(--card-shadow), 0 0 44px var(--accent-glow);
+}
+
+.qc-ticket strong {
+  color: var(--accent);
+  font-size: 64px;
+  font-weight: 500;
+}
+
+.qc-ticket em {
+  color: var(--text);
+  font-size: 36px;
+  font-style: normal;
+  overflow-wrap: anywhere;
+}
+
+.qc-ticket small {
+  align-self: end;
+  color: var(--text-mute);
+  font-size: 28px;
+}
+
+@keyframes qcBlink {
+  0%, 52% {
+    opacity: 1;
+  }
+  53%, 100% {
+    opacity: 0;
+  }
+}
