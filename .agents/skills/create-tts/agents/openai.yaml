@@ -1,0 +1,3 @@
+display_name: Create TTS
+short_description: Extract, review, and synthesize presentation narration audio.
+default_prompt: Use create-tts to extract narration segments, ask for human review, then synthesize missing audio files with the requested voice.

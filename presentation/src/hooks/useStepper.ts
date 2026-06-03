@@ -38,10 +38,21 @@ function sanitize(cursor: Cursor, chapters: ChapterDef[]): Cursor {
   return { chapter, step };
 }
 
+function shouldStartFromBeginning(): boolean {
+  if (typeof window === "undefined") return false;
+  const q = new URLSearchParams(window.location.search);
+  return (
+    q.get("start") === "1" ||
+    q.get("restart") === "1" ||
+    q.get("from") === "start"
+  );
+}
+
 export function useStepper(chapters: ChapterDef[]): StepperState {
   const [cursor, setCursor] = useState<Cursor>(() => {
     const fallback = { chapter: 0, step: 0 };
     if (typeof window === "undefined") return fallback;
+    if (shouldStartFromBeginning()) return fallback;
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
       if (raw) return sanitize(JSON.parse(raw), chapters);
@@ -141,6 +152,7 @@ export function useStepper(chapters: ChapterDef[]): StepperState {
       if (e.target instanceof HTMLInputElement) return;
       if (e.key === "ArrowRight" || e.key === " ") {
         e.preventDefault();
+        if (e.key === " " && document.querySelector(".auto-gate")) return;
         next();
       } else if (e.key === "ArrowLeft" || e.key === "Backspace") {
         e.preventDefault();
